@@ -1,0 +1,143 @@
+
+
+<div *ngIf= "newEmployeeClicked" class="dialog">  
+  <h2>Add Employee</h2>
+  <form>
+    
+      <div class="form-group name">
+      <label for="name">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+      <input type="text" class="form-control input" id="name" name="name" [(ngModel)]="model.name" placeholder="Name" required>
+      </div>
+  
+      <div class="form-group position">
+      <label for="position">Position&nbsp;&nbsp;:</label>
+      <input type="text" class="form-control input" id="position" name="position" 
+      [(ngModel)]="model.position" placeholder="Position" required>
+      </div>
+  
+      <div class="form-group position">
+      <label for="age">Age&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+      <input type="text" class="form-control input" id="age" name="age" 
+      [(ngModel)]="model.age" placeholder="Age" required>
+      </div>
+  
+      <div class="form-group position">
+      <label for="startDate">Start Date:</label>
+      <input type="date" class="form-control input" id="startDate" name="startDate" 
+      [(ngModel)]="model.startDate" placeholder="Enter Start Date" required>
+      </div>
+  
+      <div class="form-group position">
+      <label for="endDate">End Date &nbsp;:</label>
+      <input type="date" class="form-control input" id="endDate" name="endDate" 
+      [(ngModel)]="model.endDate" placeholder="Enter End Date" required>
+      </div>
+  
+      <div class="submitBtnContainer">
+      <button type="submit" class="saveBtn" (click)="addEmployee()">SAVE</button>
+      <button type="submit" class="closeBtn" (click)="closeAddDialog()">CLOSE</button>
+      
+      </div>
+  
+  </form>
+  </div>
+  
+  
+  
+  
+  <h2> Employees List</h2>
+  <table>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Age</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Actions <button (click)="addNewEmployeeBtn()"><i class='fas fa-user-plus'></i></button></th>
+  </tr>
+  
+  <tr>
+    <td></td>
+    <td>
+      <input type="text" [(ngModel)]="searchTerm" id="searchTerm" placeholder="Search by Name">
+    </td>
+    <td>
+      <select name="jobs" id="jobs">
+  
+          <option style="display:none"></option>
+          <option *ngFor="let employee of employees ; let i=index;"value="employee.position">
+            {{employee.position}}
+          </option>
+      </select>        
+      
+    </td>
+    <td><input type="text" [(ngModel)]="findAge"></td>
+    <td><input type="date"></td>
+    <td><input type="date"></td>
+    <td>
+        <button><i class="fa fa-filter"></i></button>&nbsp;
+        <button><i class="fas fa-times"></i></button>
+    </td>
+  </tr>
+  
+  
+  <tr *ngFor="let employee of employees | nameFilter :searchTerm | ageFilter :findAge; let i = index" >
+    <td>{{employee.serialNo}}</td>
+    <td>{{employee.name}}</td>
+    <td>{{employee.position}}</td>
+    <td>{{employee.age}}</td>
+    <td>{{employee.startDate}}</td>
+    <td>{{employee.endDate}}</td>
+    <td>
+        <button (click)= "editEmployee(i)"><i class='fas fa-eye'></i></button>&nbsp;
+        <button (click)= "deleteEmployee(i)"><i class='fas fa-trash-alt'></i></button>
+    </td>
+  </tr>
+  </table>
+  
+  
+  
+  
+  <div *ngIf="isDialogOpen">
+  <div class="dialog">   
+      
+      <h2> Edit Employee</h2>
+      <form>
+      <div class="form-group name">
+      <label for="name">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+        <input type="text"  class="form-control input"  id="name"  name="name"  [(ngModel)]="model2.name"  placeholder="Name">
+      </div>
+  
+  
+      <div class="form-group position">
+      <label for="position">Position&nbsp;&nbsp;:</label>
+      <input type="text" class="form-control input" id="position" name="position" [(ngModel)]="model2.position" placeholder="Position">
+      </div>
+  
+  
+      <div class="form-group position">
+      <label for="age">Age&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+      <input type="text" class="form-control input" id="age" name="age" [(ngModel)]="model2.age"
+      placeholder="Age">
+      </div>
+  
+  
+      <div class="form-group position">
+      <label for="position">Start Date:</label>
+      <input type="date" class="form-control input" id="startDate" name="startDate" [(ngModel)]="model2.startDate" placeholder="Start Date">
+      </div>
+  
+  
+      <div class="form-group position">
+      <label for="endDate">End Date &nbsp;:</label>
+      <input type="date" class="form-control input" id="endDate" name="endDate" [(ngModel)]="model2.endDate" placeholder="End Date:">
+  
+      </div>
+      <button type="submit" class="saveBtn" (click)="updateEmployee()">Update</button>
+      <button type="submit" class="closeBtn" (click)="closeEditDialog()">Close</button>
+      </form>
+  </div>
+  <div>
+  
+  

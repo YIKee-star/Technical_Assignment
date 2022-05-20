@@ -1,0 +1,107 @@
+
+.name {
+  padding:0px 15px 15px 20px;
+  background:#f6f6f6;
+}
+
+.position {  
+  background:#f6f6f6;
+  padding:0px 15px 15px 20px;
+}
+
+
+
+.input {
+  border:none;
+  height:32px;
+  padding-left:10px;
+  width:60%;
+  border-radius:5px;
+  border-bottom: 1px solid #444444;
+
+}
+
+.positionInput {
+  border:none;
+  height:32px;
+  padding-left:10px;
+  width:60%;
+  border-radius:5px;
+}
+
+.saveBtn {
+  position: relative;
+  background:green;
+  color:#ffffff;
+  border:none;
+  width:70px;
+  height:32px;
+  cursor:pointer;
+  border-radius:3px;
+  left:35%
+ 
+}
+
+.closeBtn { 
+  position: relative;
+  background:rgb(255, 60, 0);
+  color:#e7bcbc;
+  border:none;
+  width:70px;
+  height:32px;
+  cursor:pointer;
+  border-radius:3px;
+  left:40%
+
+}
+
+#close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 50px;
+  height: 25px;
+}
+
+#button-centre {
+  position: absolute; 
+  width: 30px;
+  height: 100px;
+  text-align: center;
+}
+
+tr,td,th{
+  border-bottom: 1px solid #ddd;
+  padding: 7px;
+}
+
+td{
+text-align:center;
+}
+
+button{
+  background-color: dodgerblue;
+  color: #ffffff;
+  border: #ddd;
+}
+
+.dialog{
+  position: fixed;
+  padding: 10px;
+  height: auto;
+  width: 50%;
+  top: 20px;
+  left: 350px;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  z-index: 1;
+  border: 1px solid blue;
+  border-radius: 4px;
+}
+
+h2 {
+  text-align: center;
+  color: rgb(0,158,221);
+  font-family: sans-serif;
+}
